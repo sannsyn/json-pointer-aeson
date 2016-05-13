@@ -25,3 +25,8 @@ value pointer json =
               (Vector.!?) x =<< index
             _ ->
               Nothing
+
+nullableValue :: JSONPointer.Model.JSONPointer -> Aeson.Value -> Aeson.Value
+nullableValue pointer json =
+  fromMaybe Aeson.Null $
+  value pointer json
